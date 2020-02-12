@@ -1,5 +1,5 @@
 import {
-  JupyterFrontEnd, JupyterFrontEndPlugin
+  JupyterFrontEnd, JupyterFrontEndPlugin, IRouter
 } from '@jupyterlab/application';
 import {ILauncher} from '@jupyterlab/launcher';
 import {IFrame} from '@jupyterlab/apputils';
@@ -11,14 +11,15 @@ import {IDocumentManager} from '@jupyterlab/docmanager';
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'exampleLoader',
   autoStart: true,
-  requires: [ILauncher, IDocumentManager],
+  requires: [ILauncher, IDocumentManager, IRouter],
   activate: loadExamples
 };
 
 export default extension;
 
 export function loadExamples(
-  app: JupyterFrontEnd, launcher: ILauncher, docmanager: IDocumentManager): Promise<void>{
+  app: JupyterFrontEnd, launcher: ILauncher,
+  docmanager: IDocumentManager, router: IRouter): Promise<void>{
 
     // create new commands and add them to app.commands
     function appendNewCommand(item: any) {
@@ -53,6 +54,11 @@ export function loadExamples(
         });
     }
 
+    router.register({
+        command: 'vires:copyRouter',
+        pattern:  /(\?copy|\&copy)([^?]+)/
+    });
+
     /*appendNewCommand({
         name: 'Example Loader',
         target: 'widget',
@@ -74,6 +80,18 @@ export function loadExamples(
         iconClass: 'templateIcon',
         execute: () => {
             docmanager.copy('VirES/data/templateTest.ipynb', '')
+                .then((result)=>{
+                    docmanager.open(result.path);
+                });
+        }
+    });
+
+    app.commands.addCommand('vires:copyRouter', {
+        label: 'Router command for copy functionality',
+        iconClass: 'templateIcon',
+        execute: (args) => {
+            const path = (args.search as string).replace('?copy', '');
+            docmanager.copy(path, '')
                 .then((result)=>{
                     docmanager.open(result.path);
                 });
