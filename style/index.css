@@ -11,3 +11,7 @@
 .templateIcon.jp-Launcher-icon {
     background-image: url('images/vre_python_logo.svg')
 }
+
+.introductionitem, .virestemplate, .viresdemo{
+    background-image: url('images/vre_python_logo.svg.png')
+}
