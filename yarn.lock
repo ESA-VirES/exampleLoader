@@ -43,7 +43,7 @@
     classnames "^2.2"
     tslib "~1.9.0"
 
-"@jupyterlab/application@^1.0.0":
+"@jupyterlab/application@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/application/-/application-1.2.1.tgz#55842eaabe816492e6bb5a97ff2023e1f2734743"
   integrity sha512-CYA0/s/jPNV4x6TtRn4XTVLYOlJIUS7jz2SzxLoSn1sVEg5783y7z6SQPALyYFJINd3XOMgmax3tVVYtQAM2KA==
@@ -66,7 +66,7 @@
     "@phosphor/widgets" "^1.9.0"
     font-awesome "~4.7.0"
 
-"@jupyterlab/apputils@^1.0.0", "@jupyterlab/apputils@^1.2.1":
+"@jupyterlab/apputils@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/apputils/-/apputils-1.2.1.tgz#8fac728277e8ca8a4f35668184201f33fffb32b8"
   integrity sha512-xp4GBpMJrK8DTLQmZr0cXwUJElbAbRRtNTxHempigmCEQhzaC1OUN+0M+xOc4Z45Ir0XgcefdCzdwyEUFx1UyQ==
@@ -139,7 +139,7 @@
     path-posix "~1.0.0"
     url-parse "~1.4.3"
 
-"@jupyterlab/docmanager@^1.0.0":
+"@jupyterlab/docmanager@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/docmanager/-/docmanager-1.2.1.tgz#0d98f00c0b012348512a534d787a1ac541684512"
   integrity sha512-4XyXMqx6oxxXW28p/dWX0S5BYwY3RiSKCzN8XuSTfre85jsNQz2712ZyJ51WeevIJ7U+6T/CRRILEv8Jo5SNbg==
@@ -178,7 +178,7 @@
     "@phosphor/signaling" "^1.3.0"
     "@phosphor/widgets" "^1.9.0"
 
-"@jupyterlab/launcher@^1.0.0":
+"@jupyterlab/launcher@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/launcher/-/launcher-1.2.1.tgz#c1e1774bedd88bb0d53be153b0e8ace1ba6cc24f"
   integrity sha512-me1tmAeohLI2ofRg0i0kWUVZRj/RdgPJV5FAT7+oMF/dX1tj5HdcoOW/l8gRCdjflniO/IHD3Ei5UZoAo9EN7A==
@@ -193,7 +193,7 @@
     "@phosphor/widgets" "^1.9.0"
     react "~16.8.4"
 
-"@jupyterlab/mainmenu@^1.0.0":
+"@jupyterlab/mainmenu@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@jupyterlab/mainmenu/-/mainmenu-1.2.1.tgz#5e0b6eeca6f72f82188c44dd3f2dbfd288890359"
   integrity sha512-T1WfTOkzMtbE1zXVeMM2oCTz/wvAPoeQiKTlsSLOLOP5rDl3fbDx7EWHAHRqDyGPbakTbqiQPHrbqRRiGhayDA==

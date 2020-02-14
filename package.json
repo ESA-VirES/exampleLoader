@@ -31,11 +31,11 @@
     "watch": "tsc -b --watch"
   },
   "dependencies": {
-    "@jupyterlab/application": "^1.0.0",
-    "@jupyterlab/apputils": "^1.0.0",
-    "@jupyterlab/docmanager": "^1.0.0",
-    "@jupyterlab/launcher": "^1.0.0",
-    "@jupyterlab/mainmenu": "^1.0.0",
+    "@jupyterlab/application": "^1.2.1",
+    "@jupyterlab/apputils": "^1.2.1",
+    "@jupyterlab/docmanager": "^1.2.1",
+    "@jupyterlab/launcher": "^1.2.1",
+    "@jupyterlab/mainmenu": "^1.2.1",
     "@jupyterlab/services": "^4.2.0"
   },
   "devDependencies": {
