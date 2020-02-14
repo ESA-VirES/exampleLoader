@@ -1,7 +1,7 @@
 import {
   JupyterFrontEnd, JupyterFrontEndPlugin, IRouter
 } from '@jupyterlab/application';
-import {ILauncher} from '@jupyterlab/launcher';
+import {ILauncher, LauncherModel} from '@jupyterlab/launcher';
 //import {IFrame} from '@jupyterlab/apputils';
 import {IDocumentManager} from '@jupyterlab/docmanager';
 //import {ServerConnection} from '@jupyterlab/services';
@@ -22,12 +22,40 @@ export function loadExamples(
   app: JupyterFrontEnd, launcher: ILauncher,
   docmanager: IDocumentManager, router: IRouter): Promise<void>{
 
+    function onLauncherStateChanged(launcher: LauncherModel) {
+        // TODO: This is really not the way this should be done but i can't find
+        // any alternative to modify what is shown on the launcher so i register
+        // to the change event of the launcher and modify once the items appear
+        // that i would like to modify or remove
+
+        let litems = (<any>launcher)._items;
+        let index = -1;
+        for(let jj=0; jj<litems.length; jj++){
+            if(litems[jj].category === 'Console'){
+                index = jj;
+                console.log('Found console item');
+                console.log(JSON.stringify(litems[jj]));
+            }
+        }
+        if (index !== -1){
+            //(<any>KNOWN_CATEGORIES) = ['Notebook', 'Other'];
+            //(<any>launcher)._items.splice(index,1);
+            //(<any>launcher)._items[index].category = 'Other';
+            //(<any>launcher).stateChanged.emit(void 0);
+        }
+    }
+
     function loadExampleNotebooks(result: string){
+
+
         const respjson = JSON.parse(result);
         const notebooks = respjson.notebooks;
         for(let ii=0; ii<notebooks.length; ii++){
             appendLauncherCommand(notebooks[ii]);
         }
+
+        (<any>launcher).stateChanged.connect(onLauncherStateChanged);
+
     }
 
     var xmlHttp = new XMLHttpRequest();
@@ -42,28 +70,6 @@ export function loadExamples(
         true
     );
     xmlHttp.send(null);
-
-    /*
-    let settings = ServerConnection.makeSettings();
-    console.log(settings);
-    console.log(settings.baseUrl+'blabla');
-    ServerConnection.makeRequest('VirES/notebooks.json', {}, settings)
-        .then(result=>console.log(result));
-    */
-
-    console.log(launcher);
-    // TODO: i would like to change the name of the laucnher tile but for now
-    // i just move it to another group
-    let litems = (<any>launcher)._items;
-    console.log('launcher items');
-    console.log(litems);
-    for(let jj=0; jj<litems.length; jj++){
-        if(litems[jj].category === 'Console'){
-            litems[jj].category = 'Other';
-        }
-    }
-
-
 
     // create new commands and add them to app.commands
     function appendLauncherCommand(item: any) {

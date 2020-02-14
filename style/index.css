@@ -15,3 +15,7 @@
 .introductionitem, .virestemplate, .viresdemo{
     background-image: url('images/vre_python_logo.svg.png')
 }
+
+.jp-Launcher-section:nth-child(3) {
+    display: none;
+}
