@@ -1,6 +1,6 @@
 # exampleLoader
 
-![Github Actions Status](https://github.com/my_name/myextension/workflows/Build/badge.svg)
+![Github Actions Status](https://github.com/ESA-VirES/exampleLoader/workflows/Build/badge.svg)
 
 Example loader widget to allow visualization and selection of available example notebooks
 

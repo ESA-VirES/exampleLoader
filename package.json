@@ -7,11 +7,11 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/my_name/myextension",
+  "homepage": "https://github.com/ESA-VirES/exampleLoader",
   "bugs": {
-    "url": "https://github.com/my_name/myextension/issues"
+    "url": "https://github.com/ESA-VirES/exampleLoader/issues"
   },
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "author": "Daniel Santillan",
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
