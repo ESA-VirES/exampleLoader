@@ -1,15 +1,20 @@
 
 
-.exampleLoaderIcon.jp-Launcher-sectionIcon.jp-Launcher-icon {
+/* Override theme variables */
+:root {
+  --jp-image-jupyter: url('images/vre_logo_stroke_black.svg')!important;
+}
+
+.jp-JupyterIcon {
+    background-size: 22px;
+}
+
+.introductionitem.jp-Launcher-sectionIcon.jp-Launcher-icon {
     background-image: url('images/vre_logo_stroke_black.svg')
 }
 
-.exampleLoaderIcon.jp-Launcher-icon {
-    background-image: url('images/vre_python_logo.svg')
-}
-
-.templateIcon.jp-Launcher-icon {
-    background-image: url('images/vre_python_logo.svg')
+.viresdemo.jp-Launcher-sectionIcon.jp-Launcher-icon {
+    background-image: url('images/vre_logo_stroke_black.svg')
 }
 
 .introductionitem, .virestemplate, .viresdemo{

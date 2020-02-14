@@ -1,10 +1,15 @@
+// Author: Daniel Santillan
+// Copyright (c) EOX IT Services
+// Distributed under the terms of the MIT License.
+
 import {
   JupyterFrontEnd, JupyterFrontEndPlugin, IRouter
 } from '@jupyterlab/application';
+import {IMainMenu} from '@jupyterlab/mainmenu'
 import {ILauncher, LauncherModel} from '@jupyterlab/launcher';
-//import {IFrame} from '@jupyterlab/apputils';
+import {IFrame} from '@jupyterlab/apputils';
 import {IDocumentManager} from '@jupyterlab/docmanager';
-//import {ServerConnection} from '@jupyterlab/services';
+import {Menu} from '@phosphor/widgets'
 
 /**
  * Initialization data for the exampleLoader extension.
@@ -12,37 +17,51 @@ import {IDocumentManager} from '@jupyterlab/docmanager';
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'exampleLoader',
   autoStart: true,
-  requires: [ILauncher, IDocumentManager, IRouter],
+  requires: [IMainMenu, ILauncher, IDocumentManager, IRouter],
   activate: loadExamples
 };
 
 export default extension;
 
+export const MenuItems = [
+    {
+        name: 'Manage Access Tokens',
+        url: 'https://vires.services/accounts/tokens/',
+        description: 'VirES Access Tokens',
+        target: '_blank'
+    },
+    {
+        name: 'FAQ',
+        url: 'https://vires.services/faq',
+        description: 'VirES Frequenty asked Questions',
+        target: '_blank'
+    },
+    {
+        name: 'VirES Service Terms',
+        url: 'https://vires.services/service_terms',
+        description: 'VirES Service Terms',
+        target: '_blank'
+    },
+    {
+        name: 'ESA Data Terms',
+        url: 'https://vires.services/data_terms',
+        description: 'ESA Data Terms',
+        target: '_blank'
+    }
+];
+
+
 export function loadExamples(
-  app: JupyterFrontEnd, launcher: ILauncher,
+  app: JupyterFrontEnd, mainMenu: IMainMenu, launcher: ILauncher,
   docmanager: IDocumentManager, router: IRouter): Promise<void>{
 
     function onLauncherStateChanged(launcher: LauncherModel) {
-        // TODO: This is really not the way this should be done but i can't find
-        // any alternative to modify what is shown on the launcher so i register
-        // to the change event of the launcher and modify once the items appear
-        // that i would like to modify or remove
-
+        /*
         let litems = (<any>launcher)._items;
-        let index = -1;
-        for(let jj=0; jj<litems.length; jj++){
-            if(litems[jj].category === 'Console'){
-                index = jj;
-                console.log('Found console item');
-                console.log(JSON.stringify(litems[jj]));
-            }
-        }
-        if (index !== -1){
-            //(<any>KNOWN_CATEGORIES) = ['Notebook', 'Other'];
-            //(<any>launcher)._items.splice(index,1);
-            //(<any>launcher)._items[index].category = 'Other';
-            //(<any>launcher).stateChanged.emit(void 0);
-        }
+        (<any>launcher)._items.splice(index,1);
+        (<any>launcher)._items[index].category = 'Other';
+        (<any>launcher).stateChanged.emit(void 0);
+        */
     }
 
     function loadExampleNotebooks(result: string){
@@ -103,14 +122,12 @@ export function loadExamples(
         });
     }
 
-    /*
     // create new commands and add them to app.commands
     function appendNewCommand(item: any) {
         let iframe: IFrame = null;
-        let command = `vires:${item.name}`;
+        let command = `VirES-VRE-${item.name}:show`;
         app.commands.addCommand(command, {
             label: item.name,
-            iconClass: item.iconClass,
             execute: () => {
                 if (item.target == '_blank') {
                     let win = window.open(item.url, '_blank');
@@ -137,19 +154,12 @@ export function loadExamples(
         });
     }
 
-    appendNewCommand({
-        name: 'Example Loader',
-        target: 'widget',
-        url: 'https://swarm-vre.readthedocs.io/en/staging/',
-        iconClass: 'exampleLoaderIcon'
-    });
+    MenuItems.forEach(item => appendNewCommand(item));
 
-    launcher.add({
-        category: 'VirES',
-        command: 'vires:Example Loader',
-        rank: 0
-    });
-    */
+    // add to mainMenu
+    let menu = Private.createMenu(app);
+    mainMenu.addMenu(menu, {rank: 1000});
+   
 
     router.register({
         command: 'vires:copyRouter',
@@ -171,4 +181,23 @@ export function loadExamples(
 
 
     return Promise.resolve(void 0);
+}
+
+/**
+ * A namespace for help plugin private functions.
+ */
+
+namespace Private {
+    /**
+     * Creates a menu for the help plugin.
+     */
+    export function createMenu(app: JupyterFrontEnd): Menu {
+
+        const {commands} = app;
+        let menu:Menu = new Menu({commands});
+        menu.title.label = 'VirES-VRE';
+        MenuItems.forEach(item => menu.addItem({command: `VirES-VRE-${item.name}:show`}));
+
+        return menu;
+    }
 }
