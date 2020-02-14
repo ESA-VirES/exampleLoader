@@ -25,13 +25,31 @@ export default extension;
 
 export const MenuItems = [
     {
+        name: 'VirES for Swarm',
+        url: 'https://vires.services',
+        description: 'VirES for Swarm',
+        target: '_blank'
+    },
+    {
         name: 'Manage Access Tokens',
         url: 'https://vires.services/accounts/tokens/',
         description: 'VirES Access Tokens',
         target: '_blank'
     },
     {
-        name: 'FAQ',
+        name: 'VirES Account',
+        url: 'https://vires.services/oauth',
+        description: 'VirES Account',
+        target: '_blank'
+    },
+    {
+        name: 'VRE Documentation',
+        url: 'https://swarm-vre.readthedocs.io/',
+        description: 'VRE Documentation',
+        target: '_blank'
+    },
+    {
+        name: 'VirES FAQ',
         url: 'https://vires.services/faq',
         description: 'VirES Frequenty asked Questions',
         target: '_blank'
