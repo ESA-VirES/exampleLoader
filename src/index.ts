@@ -178,7 +178,16 @@ export function loadExamples(
         }
     });
 
-
+    console.log(launcher);
+    launcher.add({
+        category: 'Other',
+        command: 'console:create',
+        rank: 0,
+        args: {
+            isLauncher: true,
+            kernelPreference: {name: "python3"}
+        }
+    });
 
     return Promise.resolve(void 0);
 }
