@@ -94,19 +94,10 @@ export function loadExamples(
         (<any>launcher).stateChanged.connect(onLauncherStateChanged);
 
     }
-
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-            loadExampleNotebooks(xmlHttp.responseText);
-        }
-    }
-    xmlHttp.open(
-        "GET",
-        'https://raw.githubusercontent.com/Swarm-DISC/Swarm_notebooks/master/notebooks.json',
-        true
-    );
-    xmlHttp.send(null);
+    docmanager.services.contents.get('shared/Swarm_notebooks/notebooks.json')
+        .then((doc)=>{
+            loadExampleNotebooks(doc.content);
+        });
 
     // create new commands and add them to app.commands
     function appendLauncherCommand(item: any) {
