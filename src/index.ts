@@ -9,7 +9,7 @@ import {IMainMenu} from '@jupyterlab/mainmenu'
 import {ILauncher, LauncherModel} from '@jupyterlab/launcher';
 import {IFrame} from '@jupyterlab/apputils';
 import {IDocumentManager} from '@jupyterlab/docmanager';
-import {Menu} from '@phosphor/widgets'
+import {Menu} from '@lumino/widgets'
 
 /**
  * Initialization data for the exampleLoader extension.

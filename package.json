@@ -31,12 +31,12 @@
     "watch": "tsc -b --watch"
   },
   "dependencies": {
-    "@jupyterlab/application": "^1.2.1",
-    "@jupyterlab/apputils": "^1.2.1",
-    "@jupyterlab/docmanager": "^1.2.1",
-    "@jupyterlab/launcher": "^1.2.1",
-    "@jupyterlab/mainmenu": "^1.2.1",
-    "@jupyterlab/services": "^4.2.0"
+    "@jupyterlab/application": "^3.0",
+    "@jupyterlab/apputils": "^3.0",
+    "@jupyterlab/docmanager": "^3.0",
+    "@jupyterlab/launcher": "^3.0",
+    "@jupyterlab/mainmenu": "^3.0",
+    "@jupyterlab/services": "^6.1"
   },
   "devDependencies": {
     "rimraf": "~2.6.2",
