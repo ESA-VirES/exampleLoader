@@ -1,8 +1,16 @@
 
 
 /* Override theme variables */
-:root {
-  --jp-image-jupyter: url('images/vre_logo_stroke_black.svg')!important;
+
+#jp-MainLogo {
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('images/vre_logo_stroke_black.svg');
+}
+
+#jp-MainLogo svg {
+  display: none;
 }
 
 .jp-JupyterIcon {
