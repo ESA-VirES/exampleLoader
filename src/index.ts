@@ -25,44 +25,44 @@ export default extension;
 
 export const MenuItems = [
     {
-        name: 'VirES for Swarm',
-        url: 'https://vires.services',
-        description: 'VirES for Swarm',
+        name: 'VirES for Aeolus',
+        url: 'https://aeolus.services',
+        description: 'VirES for Aeolus',
         target: '_blank'
     },
     {
         name: 'Manage Access Tokens',
-        url: 'https://vires.services/accounts/tokens/',
+        url: 'https://aeolus.services/accounts/tokens/',
         description: 'VirES Access Tokens',
         target: '_blank'
     },
     {
         name: 'VirES Account',
-        url: 'https://vires.services/oauth',
+        url: 'https://aeolus.services/oauth',
         description: 'VirES Account',
         target: '_blank'
     },
     {
         name: 'VRE Documentation',
-        url: 'https://swarm-vre.readthedocs.io/',
+        url: 'https://notebooks.aeolus.services/',
         description: 'VRE Documentation',
         target: '_blank'
     },
     {
         name: 'VirES FAQ',
-        url: 'https://vires.services/faq',
-        description: 'VirES Frequenty asked Questions',
+        url: 'https://aeolus.services/accounts/faq',
+        description: 'VirES Aeolus Frequenty asked Questions',
         target: '_blank'
     },
     {
         name: 'VirES Service Terms',
-        url: 'https://vires.services/service_terms',
+        url: 'https://aeolus.services/accounts/servicetc',
         description: 'VirES Service Terms',
         target: '_blank'
     },
     {
         name: 'ESA Data Terms',
-        url: 'https://vires.services/data_terms',
+        url: 'https://aeolus.services/eoxs_static/other/T%26C_for_ESA_Dataset-v1.pdf',
         description: 'ESA Data Terms',
         target: '_blank'
     }
