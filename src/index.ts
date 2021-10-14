@@ -94,7 +94,7 @@ export function loadExamples(
         (<any>launcher).stateChanged.connect(onLauncherStateChanged);
 
     }
-    docmanager.services.contents.get('shared/Swarm_notebooks/notebooks.json')
+    docmanager.services.contents.get('shared/Aeolus-notebooks/notebooks.json')
         .then((doc)=>{
             loadExampleNotebooks(doc.content);
         });
@@ -107,7 +107,7 @@ export function loadExamples(
         if(item.hasOwnProperty('class')){
             classDesc = item.class
         }
-        let path = `shared/Swarm_notebooks/${item.path}`;
+        let path = `shared/Aeolus-notebooks/${item.path}`;
 
         app.commands.addCommand(command, {
             label: item.name,
