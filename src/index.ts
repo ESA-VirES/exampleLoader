@@ -50,13 +50,19 @@ export const MenuItems = [
     },
     {
         name: 'VirES FAQ',
-        url: 'https://aeolus.services/accounts/faq',
+        url: 'https://aeolus.services/faq',
+        description: 'VirES Aeolus Frequenty asked Questions',
+        target: '_blank'
+    },
+    {
+        name: 'VirES Privacy Notice',
+        url: 'https://aeolus.services/privacy_notice',
         description: 'VirES Aeolus Frequenty asked Questions',
         target: '_blank'
     },
     {
         name: 'VirES Service Terms',
-        url: 'https://aeolus.services/accounts/servicetc',
+        url: 'https://aeolus.services/service_terms',
         description: 'VirES Service Terms',
         target: '_blank'
     },
