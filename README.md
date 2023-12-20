@@ -1,23 +1,33 @@
-# exampleLoader
+# vires_extension
 
-![Github Actions Status](https://github.com/ESA-VirES/exampleLoader/workflows/Build/badge.svg)
-
-Example loader widget to allow visualization and selection of available example notebooks
-
+[![Github Actions Status](https://github.com/ESA-VirES/vires-extension/workflows/Build/badge.svg)](https://github.com/ESA-VirES/vires-extension/actions/workflows/build.yml)
+A JupyterLab extension for the VirES environment allowing loading of examples in launcher and style adaptations.
 
 ## Requirements
 
-* JupyterLab >= 1.0
+- JupyterLab >= 4.0.0
 
 ## Install
 
+To install the extension, execute:
+
 ```bash
-jupyter labextension install exampleLoader
+pip install vires_extension
+```
+
+## Uninstall
+
+To remove the extension, execute:
+
+```bash
+pip uninstall vires_extension
 ```
 
 ## Contributing
 
-### Install
+### Development install
+
+Note: You will need NodeJS to build the extension package.
 
 The `jlpm` command is JupyterLab's pinned version of
 [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
@@ -25,31 +35,62 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Move to exampleLoader directory
-# Install dependencies
-jlpm
-# Build Typescript source
-jlpm build
+# Change directory to the vires_extension directory
+# Install package in development mode
+pip install -e "."
 # Link your development version of the extension with JupyterLab
-jupyter labextension link .
-# Rebuild Typescript source after making changes
+jupyter labextension develop . --overwrite
+# Rebuild extension Typescript source after making changes
 jlpm build
-# Rebuild JupyterLab after making any changes
-jupyter lab build
 ```
 
-You can watch the source directory and run JupyterLab in watch mode to watch for changes in the extension's source and automatically rebuild the extension and application.
+You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
 
 ```bash
-# Watch the source directory in another terminal tab
+# Watch the source directory in one terminal, automatically rebuilding when needed
 jlpm watch
-# Run jupyterlab in watch mode in one terminal tab
-jupyter lab --watch
+# Run JupyterLab in another terminal
+jupyter lab
 ```
 
-### Uninstall
+With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
+
+By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
 
 ```bash
-jupyter labextension uninstall exampleLoader
+jupyter lab build --minimize=False
 ```
 
+### Development uninstall
+
+```bash
+pip uninstall vires_extension
+```
+
+In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
+command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
+folder is located. Then you can remove the symlink named `vires-extension` within that folder.
+
+### Testing the extension
+
+#### Frontend tests
+
+This extension is using [Jest](https://jestjs.io/) for JavaScript code testing.
+
+To execute them, execute:
+
+```sh
+jlpm
+jlpm test
+```
+
+#### Integration tests
+
+This extension uses [Playwright](https://playwright.dev/docs/intro) for the integration tests (aka user level tests).
+More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
+
+More information are provided within the [ui-tests](./ui-tests/README.md) README.
+
+### Packaging the extension
+
+See [RELEASE](RELEASE.md)

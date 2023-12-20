@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.4
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: daniel.santillan@eox.at
+author_name: vires-extension
+data_format: string
+file_extension: ''
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: vires-extension
+mimetype: ''
+mimetype_name: ''
+project_short_description: A JupyterLab extension for the VirES environment allowing
+    loading of examples in launcher and style adaptations.
+python_name: vires_extension
+repository: https://github.com/ESA-VirES/vires-extension
+test: true
+viewer_name: ''
+
