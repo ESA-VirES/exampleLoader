@@ -43,7 +43,7 @@ export const MenuItems = [
   },
   {
       name: 'VRE Documentation',
-      url: 'https://swarm-vre.readthedocs.io/',
+      url: 'https://notebooks.vires.services',
       description: 'VRE Documentation',
       target: '_blank'
   },
